@@ -1,5 +1,5 @@
 export interface AddressInterface {    
-    id:number,
+    id:string,
     address:string,
     building:string,
     zipcode:string,
@@ -10,7 +10,7 @@ export interface AddressInterface {
 }
   
   export class Address implements AddressInterface {
-      public id: number;
+      public id: string;
       public address: string;
       public building: string;
       public zipcode: string;
