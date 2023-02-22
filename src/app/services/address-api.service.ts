@@ -9,8 +9,7 @@ import { loadAddresses } from '../core/state/actions/address.actions';
   providedIn: 'root'
 })
 export class AddressApiService {
-  private readonly GET_API_URL = 'https://638889f6a4bb27a7f78a28ad.mockapi.io/api/delivery/';
-  private readonly POST_API_URL = 'https://638889f6a4bb27a7f78a28ad.mockapi.io/api/delivery/';
+  private readonly API_URL = 'https://638889f6a4bb27a7f78a28ad.mockapi.io/api/delivery/';
   private addressListSubject = new BehaviorSubject<Address[]>([]);
   addresses$ = this.addressListSubject.asObservable();
 
@@ -18,7 +17,7 @@ export class AddressApiService {
 
   // Retrieves all the addresses from the API 
   getAllAddresses(): Observable<Address[]> {
-    return this.http.get<Address[]>(this.GET_API_URL).pipe(
+    return this.http.get<Address[]>(this.API_URL).pipe(
       map((response: Address[]) => {
         return response;
       }),
@@ -28,7 +27,7 @@ export class AddressApiService {
 
   // Retrieves one address object by id 
   getAddress(id : number): Observable<Address> {
-    return this.http.get<Address>(this.GET_API_URL + id).pipe(
+    return this.http.get<Address>(this.API_URL + id).pipe(
       map((response: Address) => {
         return response;
       }),
@@ -37,7 +36,7 @@ export class AddressApiService {
   }
 
   postAddress(address: Address): Observable<Address> {
-    return this.http.post<Address>(this.POST_API_URL, address).pipe(
+    return this.http.post<Address>(this.API_URL, address).pipe(
       catchError(this.handleError)
     );
   }
