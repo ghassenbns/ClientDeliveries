@@ -2,25 +2,21 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, catchError, map, Observable, throwError} from 'rxjs';
 import { Address } from '../application/models/Address';
 import { HttpClient } from '@angular/common/http';
+import { Store } from '@ngrx/store';
+import { loadAddresses } from '../core/state/actions/address.actions';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AddressApiService {
-  readonly API_URL = 'https://638889f6a4bb27a7f78a28ad.mockapi.io/api/delivery';
+  private readonly API_URL = 'https://638889f6a4bb27a7f78a28ad.mockapi.io/api/delivery/';
   private addressListSubject = new BehaviorSubject<Address[]>([]);
   addresses$ = this.addressListSubject.asObservable();
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private store : Store) {}
 
   getAllAddresses(): Observable<Address[]> {
-    return this.http.get<Address[]>(this.API_URL).pipe(
-      map((response: Address[]) => {                
-        this.addressListSubject.next(response);
-        return response;
-      }),
-      catchError((error: any) => throwError(() => {console.log(error); return error}))
-    );
+    return this.http.get<Address[]>(this.API_URL)
   }
 
   getAddress(id : number): Observable<Address> {
