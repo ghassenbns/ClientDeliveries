@@ -14,7 +14,8 @@ export class AddressEffects {
     return this.actions$.pipe(
       ofType(AddressActions.loadAddresses),
       withLatestFrom(this.store.select(selectAddresses)),
-      filter(([action, addresses]) => !addresses.length), // Only trigger if addresses haven't been loaded
+      filter(([action, addresses]) => !addresses.length), 
+      // Only trigger if addresses haven't been loaded
       mergeMap(() => this.addressService.getAllAddresses()
         .pipe(
           map(addresses  => AddressActions.loadAddressesSuccess({ addresses })),

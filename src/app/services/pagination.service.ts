@@ -13,8 +13,10 @@ export class PaginationService {
   private readonly pageSize = 10;  
   private pagedAddresses$ = new BehaviorSubject<Address[]>([]);
   private activePage$ = new BehaviorSubject<number>(1);
+  private totalPages$ = new BehaviorSubject<number>(1);
   public pagedAddresses = this.pagedAddresses$.asObservable();
   public activePage = this.activePage$.asObservable();
+  public totalPages = this.totalPages$.asObservable();
 
   constructor(private store: Store<AppState>) {
     // Retrieve page content when active page change and sets the pagedAddresses value
@@ -33,6 +35,8 @@ export class PaginationService {
         if (!loaded) {
           console.error('Addresses have not been loaded yet.');
         }
+        // Sets the number of pages based on addresses lenght
+        this.totalPages$.next(Math.ceil(addresses.length / this.pageSize))
         // Paginate the addresses based on the page number
         return addresses.slice((page - 1) * this.pageSize, page * this.pageSize);
       }),
