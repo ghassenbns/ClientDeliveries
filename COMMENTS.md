@@ -1,8 +1,8 @@
 Client Deliveries App
-  1- Clean Architecture
-  2- Routes
-  3- Services
-  4- Summary
+  - Clean Architecture
+  - Routes
+  - Services
+  - Summary
 
 1- Clean Architecture
 
