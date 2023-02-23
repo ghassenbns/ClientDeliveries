@@ -34,7 +34,7 @@ export class AddressFormComponent implements OnInit {
     this.formGroup = this.formBuilder.group({
       address: [null, Validators.required],
       building: [null, Validators.required],
-      zipcode: [null, [Validators.required, Validators.pattern('^0*[0-9]{1,5}$')]],
+      zipcode: [null, [Validators.required, Validators.pattern('^[0-9]{5}$')]],
       door: [null, Validators.required],
       stairs: [null, Validators.required],
       province: [null, Validators.required],
