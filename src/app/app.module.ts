@@ -8,40 +8,29 @@ import { addressReducer } from './core/state/reducers/address.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { AddressEffects } from './core/state/effects/address.effects';
-import { AddressFormComponent } from './ui/address-form/address-form.component';
-import { AddressDetailsComponent } from './ui/address-details/address-details.component';
 import { NavbarComponent } from './ui/navbar/navbar.component';
-import {MatToolbarModule} from "@angular/material/toolbar";
-import {MatInputModule} from "@angular/material/input";
-import {MatFormFieldModule} from "@angular/material/form-field";
-import {MatSelectModule} from "@angular/material/select";
-import {MatRadioModule} from "@angular/material/radio";
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { AddressListModule } from './ui/address-list/address-list.module';
 import { AddressFormModule } from './ui/address-form/address-form.module';
+import { AddressDetailsModule } from './ui/address-details/address-details.module';
+import { NotFoundComponent } from './ui/not-found/not-found.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    AddressDetailsComponent,
-    NavbarComponent
-  ],
+  declarations: [AppComponent, NavbarComponent, NotFoundComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    MatRadioModule,
     MatToolbarModule,
-    StoreModule.forRoot({deliveries : addressReducer}),
+    StoreModule.forRoot({ deliveries: addressReducer }),
     EffectsModule.forRoot(),
     EffectsModule.forFeature([AddressEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25 }),
     AddressListModule,
-    AddressFormModule
+    AddressFormModule,
+    AddressDetailsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
