@@ -1,8 +1,8 @@
-/// **** CLient Deliveries **** ///
-    1- Clean Architecture
-    2- Routes
-    3- Services
-    4- Summary
+Client Deliveries App
+  1- Clean Architecture
+  2- Routes
+  3- Services
+  4- Summary
 
 1- Clean Architecture
 
