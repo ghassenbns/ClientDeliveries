@@ -11,7 +11,7 @@ import { PaginationService } from './services/pagination.service';
 export class AppComponent implements OnInit {
   title = 'ClientDeliveries';
   
-  constructor(private store : Store, private pagination : PaginationService){}
+  constructor(private store : Store){}
   
   ngOnInit(){
     this.store.dispatch(loadAddresses());
