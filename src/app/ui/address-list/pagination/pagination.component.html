@@ -1,0 +1,19 @@
+<div class="mt-3 d-flex justify-content-center">
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <li class="page-item" [ngClass]="{'disabled': activePage === pagesNumbers[0]}">
+          <a class="page-link" aria-label="Previous" role="button" (click)="setPage(activePage-1)">
+            Previous
+          </a>
+        </li>
+        <li *ngFor="let page of pagesNumbers" (click)="setPage(page)" role="button" [ngClass]="{'active': page === activePage}" class="page-item">
+          <a class="page-link">{{page}}</a>
+        </li>
+        <li class="page-item" [ngClass]="{'disabled': activePage === pagesNumbers[pagesNumbers.length-1]}">
+          <a class="page-link" aria-label="Next" role="button" (click)="setPage(activePage+1)">
+            Next
+          </a>
+        </li>
+      </ul>
+    </nav>
+</div>
