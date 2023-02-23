@@ -1,26 +1,42 @@
 # ClientDeliveries
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.5.
+This is a simple Angular application that allows users to manage delivery addresses. Users can view, create, and edit addresses. The application has been developed using the Clean Architecture principles and NGRX state management.
 
-## Development server
+## Getting started
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+To run this application locally, follow these steps:
+  1- Clone this repository to your local machine 
+  2- Run `npm install` to install all dependencies
+  3- Run `ng serve` to start the server
+  4- Navigate to http://localhost:4200/ in your web browser
 
-## Code scaffolding
+## Features
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+This application has the following features:
 
-## Build
+* View a list of delivery addresses
+* View a single delivery address
+* Create a new delivery address
+* Pagination of the delivery addresses list
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Technologies used
 
-## Running unit tests
+* Angular 15.1.0
+* NGRX state management
+* Angular Material
+* Bootstrap 5
+* RxJS
+* TypeScript
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Folder structure
 
-## Running end-to-end tests
+The application is structured using the Clean Architecture principles. The folder structure is as follows:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+    app/
+    ├── application             # Contains the application models.
+    ├── core                    # Contains the NGRX store, actions, reducers,selectors, and effects.
+    ├── services                # Contains the services used by the application.
+    └── ui                      # Contains the user interface components
 
 ## Further help
 
