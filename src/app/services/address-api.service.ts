@@ -3,7 +3,6 @@ import { BehaviorSubject, catchError, map, Observable, throwError} from 'rxjs';
 import { Address } from '../application/models/Address';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Store } from '@ngrx/store';
-import { loadAddresses } from '../core/state/actions/address.actions';
 
 @Injectable({
   providedIn: 'root'
