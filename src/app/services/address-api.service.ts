@@ -38,6 +38,9 @@ export class AddressApiService {
 
   postAddress(address: Address): Observable<Address> {
     return this.http.post<Address>(this.API_URL, address).pipe(
+      map((response : Address)=> {
+        return response;
+      }),
       catchError(this.handleError)
     );
   }

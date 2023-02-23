@@ -37,5 +37,9 @@ export const addressReducer = createReducer(
     loading: false,
     loaded: true,
     error,
+  })),
+  on(AddressActions.pushAddress, (state, { address }) => ({
+    ...state,
+    addresses: [...state.addresses, address],
   }))
 );

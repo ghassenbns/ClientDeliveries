@@ -1,5 +1,5 @@
 export interface AddressInterface {    
-    id:string,
+    id?:string,
     address:string,
     building:string,
     zipcode:string,
@@ -10,7 +10,7 @@ export interface AddressInterface {
 }
 
 export class Address implements AddressInterface {
-    public id: string;
+    public id?: string;
     public address: string;
     public building: string;
     public zipcode: string;
@@ -20,7 +20,7 @@ export class Address implements AddressInterface {
     public username: string;
   
     public constructor(params: AddressInterface) {
-        this.id = params.id;
+        this.id = params?.id;
         this.address = params.address;
         this.building = params.building;
         this.zipcode = params.zipcode;

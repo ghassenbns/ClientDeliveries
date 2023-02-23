@@ -1,6 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { map, mergeMap, catchError, withLatestFrom, filter } from 'rxjs/operators';
+import {
+  map,
+  mergeMap,
+  catchError,
+  withLatestFrom,
+  filter,
+} from 'rxjs/operators';
 import { of, EMPTY } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { AddressApiService } from 'src/app/services/address-api.service';
@@ -14,13 +20,33 @@ export class AddressEffects {
     return this.actions$.pipe(
       ofType(AddressActions.loadAddresses),
       withLatestFrom(this.store.select(selectAddresses)),
-      filter(([action, addresses]) => !addresses.length), 
+      filter(([action, addresses]) => !addresses.length),
       // Only trigger if addresses haven't been loaded
-      mergeMap(() => this.addressService.getAllAddresses()
-        .pipe(
-          map(addresses  => AddressActions.loadAddressesSuccess({ addresses })),
-          catchError(error => of(AddressActions.loadAddressesFailure({ error })))
-        ))
+      mergeMap(() =>
+        this.addressService.getAllAddresses().pipe(
+          map((addresses) =>
+            AddressActions.loadAddressesSuccess({ addresses })
+          ),
+          catchError((error) =>
+            of(AddressActions.loadAddressesFailure({ error }))
+          )
+        )
+      )
+    );
+  });
+
+  pushAddress$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(AddressActions.pushAddress),
+      withLatestFrom(this.store.select(selectAddresses)),
+      map(([action, addresses]) => {
+        const newAddress = action.address;
+        const updatedAddresses = [...addresses, newAddress];
+        return AddressActions.pushAddressSuccess({
+          addresses: updatedAddresses,
+        });
+      }),
+      catchError((error) => of(AddressActions.pushAddressFailure({ error })))
     );
   });
 
