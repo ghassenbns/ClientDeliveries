@@ -4,7 +4,7 @@ import { ActivatedRouteSnapshot, Router } from '@angular/router';
 @Injectable({
   providedIn: 'root',
 })
-export class AuthGuardService {
+export class IdGuardService {
   constructor(private router: Router) {}
 
   canActivate(route: ActivatedRouteSnapshot): boolean {

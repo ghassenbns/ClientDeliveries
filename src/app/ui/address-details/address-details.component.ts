@@ -25,7 +25,7 @@ export class AddressDetailsComponent implements OnInit, OnDestroy {
       if (id !== null) {
         this.address$ = this.addressApiService.getAddress(+id)
         this.addressSub = this.address$.subscribe({
-          error : (error) => console.error('Error while getting address :', error),
+          error : (error) => {console.error('Error while getting address :', error); this.loading = false},
           complete : () => this.loading = false
         });
       }
