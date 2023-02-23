@@ -16,19 +16,12 @@ import {MatInputModule} from "@angular/material/input";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatSelectModule} from "@angular/material/select";
 import {MatRadioModule} from "@angular/material/radio";
-import {MatDatepickerModule} from "@angular/material/datepicker";
-import {MatCheckboxModule} from "@angular/material/checkbox";
-import {MatAutocompleteModule} from "@angular/material/autocomplete";
-import {MatSlideToggleModule} from "@angular/material/slide-toggle";
-import {MatIconModule} from "@angular/material/icon";
-import {MatSliderModule} from "@angular/material/slider";
-import {MatButtonModule} from "@angular/material/button";
 import { AddressListModule } from './ui/address-list/address-list.module';
+import { AddressFormModule } from './ui/address-form/address-form.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AddressFormComponent,
     AddressDetailsComponent,
     NavbarComponent
   ],
@@ -40,20 +33,13 @@ import { AddressListModule } from './ui/address-list/address-list.module';
     MatFormFieldModule,
     MatSelectModule,
     MatRadioModule,
-    MatDatepickerModule,
-    MatCheckboxModule,
-    MatAutocompleteModule,
-    MatDatepickerModule,
-    MatSliderModule,
-    MatSlideToggleModule,
-    MatIconModule,
     MatToolbarModule,
-    MatButtonModule,
     StoreModule.forRoot({deliveries : addressReducer}),
     EffectsModule.forRoot(),
     EffectsModule.forFeature([AddressEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25 }),
-    AddressListModule
+    AddressListModule,
+    AddressFormModule
   ],
   providers: [],
   bootstrap: [AppComponent]
