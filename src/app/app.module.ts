@@ -8,10 +8,16 @@ import { addressReducer } from './core/state/reducers/address.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { AddressEffects } from './core/state/effects/address.effects';
+import { AddressFormComponent } from './ui/address-form/address-form.component';
+import { AddressDetailsComponent } from './ui/address-details/address-details.component';
+import { NavbarComponent } from './ui/navbar/navbar.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AddressFormComponent,
+    AddressDetailsComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +26,6 @@ import { AddressEffects } from './core/state/effects/address.effects';
     StoreModule.forRoot({deliveries : addressReducer}),
     EffectsModule.forRoot(),
     EffectsModule.forFeature([AddressEffects]),
-
     StoreDevtoolsModule.instrument({ maxAge: 25 })
   ],
   providers: [],

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { loadAddresses } from './core/state/actions/address.actions';
+import { PaginationService } from './services/pagination.service';
 
 @Component({
   selector: 'app-root',
@@ -9,8 +10,11 @@ import { loadAddresses } from './core/state/actions/address.actions';
 })
 export class AppComponent implements OnInit {
   title = 'ClientDeliveries';
-  constructor(private store : Store){}
+  
+  constructor(private store : Store, private pagination : PaginationService){}
+  
   ngOnInit(){
     this.store.dispatch(loadAddresses());
   }
+  
 }

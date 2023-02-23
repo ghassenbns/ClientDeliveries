@@ -33,7 +33,7 @@ export class PaginationService {
       withLatestFrom(this.store.select(state => state.deliveries.loaded)),
       map(([addresses, loaded]) => {
         if (!loaded) {
-          console.error('Addresses have not been loaded yet.');
+          return [];
         }
         // Sets the number of pages based on addresses lenght
         this.totalPages$.next(Math.ceil(addresses.length / this.pageSize))
