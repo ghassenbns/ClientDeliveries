@@ -97,15 +97,17 @@
       </mat-form-field>
     </div>
     <div class="d-flex justify-content-center">
-      <button
+      <div class="d-flex flex-column" *ngIf="!loading; else spinner">
+        <button
         color="primary"
         type="submit"
         class="btn btn-success"
-        *ngIf="!loading; else spinner"
         [disabled]="!formGroup.valid || loading"
-      >
+        >
         Submit Form
-      </button>
+        </button>
+        <a class="btn btn-secondary mt-3" href="/">Back to list</a>
+      </div>
       <ng-template class="spinner-container" #spinner>
         <mat-spinner [diameter]="40"></mat-spinner>
       </ng-template>
