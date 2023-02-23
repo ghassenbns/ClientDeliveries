@@ -5,10 +5,10 @@ This is a simple Angular application that allows users to manage delivery addres
 ## Getting started
 
 To run this application locally, follow these steps:
-  1- Clone this repository to your local machine 
-  2- Run `npm install` to install all dependencies
-  3- Run `ng serve` to start the server
-  4- Navigate to http://localhost:4200/ in your web browser
+1. Clone this repository to your local machine 
+2. Run `npm install` to install all dependencies
+3. Run `ng serve` to start the server
+4. Navigate to http://localhost:4200/ in your web browser
 
 ## Features
 
